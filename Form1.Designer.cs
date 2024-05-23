@@ -31,10 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFx = new System.Windows.Forms.TextBox();
+            this.txtX1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblDerivada = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblRaices = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -67,21 +71,21 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "f(x)=";
             // 
-            // textBox1
+            // txtFx
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(120, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 38);
-            this.textBox1.TabIndex = 3;
+            this.txtFx.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFx.Location = new System.Drawing.Point(120, 110);
+            this.txtFx.Name = "txtFx";
+            this.txtFx.Size = new System.Drawing.Size(175, 38);
+            this.txtFx.TabIndex = 3;
             // 
-            // textBox2
+            // txtX1
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(120, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(52, 38);
-            this.textBox2.TabIndex = 4;
+            this.txtX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtX1.Location = new System.Drawing.Point(120, 61);
+            this.txtX1.Name = "txtX1";
+            this.txtX1.Size = new System.Drawing.Size(52, 38);
+            this.txtX1.TabIndex = 4;
             // 
             // label4
             // 
@@ -103,20 +107,55 @@
             this.lblDerivada.TabIndex = 6;
             this.lblDerivada.Text = "Aquí va la Derivada";
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.lblRaices);
+            this.panel1.Location = new System.Drawing.Point(442, 61);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(430, 157);
+            this.panel1.TabIndex = 7;
+            // 
+            // lblRaices
+            // 
+            this.lblRaices.AutoSize = true;
+            this.lblRaices.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRaices.Location = new System.Drawing.Point(13, 5);
+            this.lblRaices.Name = "lblRaices";
+            this.lblRaices.Size = new System.Drawing.Size(143, 42);
+            this.lblRaices.TabIndex = 0;
+            this.lblRaices.Text = "Raices ";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(310, 110);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(72, 38);
+            this.btnBuscar.TabIndex = 8;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 283);
+            this.ClientSize = new System.Drawing.Size(884, 230);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDerivada);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtX1);
+            this.Controls.Add(this.txtFx);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,10 +166,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtFx;
+        private System.Windows.Forms.TextBox txtX1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDerivada;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblRaices;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
 

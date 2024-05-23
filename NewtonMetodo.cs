@@ -23,4 +23,35 @@ namespace Newton_Raphson
             return (x, maxIter);
         }
     }
+
+    internal class Derivadas
+    {
+        string polinomio; //x2 - 3x - 4
+
+        public Derivadas(string polinomio)
+        {
+            this.polinomio = polinomio.Replace("^", "");
+        }
+
+        public string Resolver()
+        {
+            string paux = polinomio.Replace("+", "_+");
+            paux = paux.Replace("-", "_-");
+            paux = paux.Replace(" ", "");
+
+            string[] monomios = paux.Split('_');
+
+            foreach(string monomio in monomios)
+            {
+                Console.WriteLine(monomio);
+            }
+
+            foreach (char c in polinomio)
+            {
+
+            }
+
+            return paux;
+        }
+    }
 }
