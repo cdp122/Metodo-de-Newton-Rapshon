@@ -25,7 +25,7 @@ namespace Newton_Raphson
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Derivadas d = new Derivadas(txtFx.Text);
-            d.Resolver();
+            lblDerivada.Text = d.Derivar();
         }
     }
 }
