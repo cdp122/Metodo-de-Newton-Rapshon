@@ -63,7 +63,7 @@ namespace Newton_Raphson
                 else resultado += " " + monomio;
             }
 
-            if (resultado[1] == '+') resultado = resultado.Substring(2, resultado.Length - 3);
+            if (resultado[1] == '+') resultado = resultado.Substring(2, resultado.Length - 2);
 
             return resultado;
         }
