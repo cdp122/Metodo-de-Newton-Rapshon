@@ -20,6 +20,28 @@ namespace Newton_Raphson
         }
     }
 
+    internal class Polinomio
+    {
+        Monomio[] monomios;
+
+        public Polinomio(string polinomio)
+        {
+            string paux = polinomio.Replace("^", "");
+            paux = polinomio.Replace("+", "_+");
+            paux = paux.Replace("-", "_-");
+            paux = paux.Replace(" ", "");
+            string[] monomios = paux.Split('_');
+            this.monomios = new Monomio[monomios.Length];
+
+            for (int i = 0; i < monomios.Length; i++)
+            {
+                this.monomios[i] = new Monomio(monomios[i]);
+            }
+        }
+
+        public Monomio[] Monomios { get => monomios; set => monomios = value; }
+    }
+
     internal class Derivadas
     {
         string polinomio; //x2 - 3x - 4
@@ -54,13 +76,14 @@ namespace Newton_Raphson
                 if (this.monomios[i].variable != ' ')
                     this.monomios[i] = new Monomio(this.monomios[i].coeficiente * this.monomios[i].potencia,
                         this.monomios[i].variable, --this.monomios[i].potencia);
-                else this.monomios[i] = new Monomio(0,' ',0);
+                else this.monomios[i] = new Monomio(0, ' ', 0);
             }
 
             foreach (Monomio monomio in this.monomios)
             {
                 if (monomio.coeficiente > 0) { resultado += " + " + monomio; }
-                else resultado += " " + monomio;
+                else if (monomio.coeficiente < 0) resultado += " " + monomio;
+                else;
             }
 
             if (resultado[1] == '+') resultado = resultado.Substring(2, resultado.Length - 2);
@@ -120,12 +143,31 @@ namespace Newton_Raphson
             }
 
             if (inc - 1 > 0) try { coeficiente = double.Parse(monomio.Substring(0, inc - 1)); }
-                catch { coeficiente = double.Parse(monomio.Substring(0, inc)); }
+                catch
+                {
+                    try { coeficiente = double.Parse(monomio.Substring(0, inc)); }
+                    catch
+                    {
+                        if (monomio[0] == '-') coeficiente = -1;
+                        else coeficiente = 1;
+                    }
+                }
             else coeficiente = 1;
             if (!char.IsDigit(monomio[inc - 1])) variable = monomio[inc - 1];
             else variable = ' ';
             if (monomio.Length - inc > 0) { potencia = double.Parse(monomio.Substring(inc, monomio.Length - inc)); }
             else potencia = 1;
+        }
+
+        /// <summary>
+        /// Resuelve el monomio reemplazando la constante por un número
+        /// </summary>
+        /// <param name="reemplazo">Número que reemplaza la incógnita.</param>
+        /// <returns>El resultado de la operación en tipo double.</returns>
+        public double Resolver(double reemplazo)
+        {
+            if (variable != ' ') return coeficiente * Math.Pow(reemplazo, potencia);
+            else return coeficiente;
         }
 
         /// <summary>
