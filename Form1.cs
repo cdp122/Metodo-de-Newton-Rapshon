@@ -39,7 +39,7 @@ namespace Newton_Raphson
             int resta = -1;
             int num = 0;
 
-            while(Math.Abs(aux1) > 1 && Math.Abs(aux2) > 1)
+            while(num++ < 10 && Math.Abs(aux1) > 1 && Math.Abs(aux2) > 1)
             {
                 aux1 = ResolverPolinomio(p, --resta);
                 aux2 = ResolverPolinomio(p, ++suma);
