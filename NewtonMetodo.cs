@@ -187,6 +187,7 @@ namespace Newton_Raphson
                     monomio += $"{variable}";
                     if (potencia != 1) monomio += "^" + potencia.ToString();
                 }
+                if (monomio == "") monomio = "1";
                 return monomio;
             }
         }
